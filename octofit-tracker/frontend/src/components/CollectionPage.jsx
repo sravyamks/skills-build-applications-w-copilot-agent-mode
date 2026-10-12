@@ -1,7 +1,14 @@
 import { useCollection } from '../hooks/useCollection.js'
 
-export default function CollectionPage({ title, description, endpoint, columns, emptyMessage }) {
-  const { items, loading, error } = useCollection(endpoint)
+export default function CollectionPage({
+  title,
+  description,
+  endpoint,
+  loadCollection,
+  columns,
+  emptyMessage,
+}) {
+  const { items, loading, error } = useCollection(loadCollection)
 
   return (
     <section aria-labelledby="page-title">

@@ -1,4 +1,9 @@
 import CollectionPage from './CollectionPage.jsx'
+import { fetchCollection } from '../api.js'
+
+async function fetch(options) {
+  return fetchCollection('/api/users/', options)
+}
 
 export default function Users() {
   return (
@@ -6,6 +11,7 @@ export default function Users() {
       title="Athletes"
       description="Meet the people showing up and moving forward."
       endpoint="/api/users/"
+      loadCollection={fetch}
       emptyMessage="Athlete profiles will appear here."
       columns={[
         { label: 'Name', render: (item) => item.displayName ?? item.username ?? 'Athlete' },
